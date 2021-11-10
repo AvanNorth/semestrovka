@@ -6,7 +6,7 @@
     <title>${lab.name}</title>
 
     <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/profile.css" rel="stylesheet">
+    <link href="/resources/css/profile.css" rel="stylesheet">
     <script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/resources/bootstrap/js/sidebars.js"></script>
     <link href="/resources/bootstrap/css/list-groups.css" rel="stylesheet">

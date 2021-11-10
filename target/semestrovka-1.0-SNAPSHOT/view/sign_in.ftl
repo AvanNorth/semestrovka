@@ -32,10 +32,10 @@
 
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="/resources/loading.css"/>
-    <link href="/resources/loader.css" rel="stylesheet">
-    <link href="/resources/signin.css" rel="stylesheet">
-    <link href="/resources/victbtn.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/resources/css/loading.css"/>
+    <link href="/resources/css/loader.css" rel="stylesheet">
+    <link href="/resources/css/signin.css" rel="stylesheet">
+    <link href="/resources/css/victbtn.css" rel="stylesheet">
 
 </head>
 

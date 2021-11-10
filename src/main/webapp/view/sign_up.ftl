@@ -39,9 +39,9 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="/resources/loader.css" rel="stylesheet">
-    <link href="/resources/signup.css" rel="stylesheet">
-    <link href="/resources/victbtn.css" rel="stylesheet">
+    <link href="/resources/css/loader.css" rel="stylesheet">
+    <link href="/resources/css/signup.css" rel="stylesheet">
+    <link href="/resources/css/victbtn.css" rel="stylesheet">
 
 </head>
 

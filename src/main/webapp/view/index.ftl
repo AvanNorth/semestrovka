@@ -33,8 +33,8 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="/resources/loader.css" rel="stylesheet">
-    <link href="/resources/home.css" rel="stylesheet">
+    <link href="/resources/css/loader.css" rel="stylesheet">
+    <link href="/resources/css/home.css" rel="stylesheet">
 </head>
 <body>
 

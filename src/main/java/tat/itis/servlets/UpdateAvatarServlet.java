@@ -37,7 +37,7 @@ public class UpdateAvatarServlet extends HttpServlet {
                     part.getSize());
             userDto.setAvatarId(fileInfo.getId());
             session.setAttribute("user", userDto);
-            response.sendRedirect("/files/" + fileInfo.getId());
+            response.sendRedirect("/profile");
         }else if (labDto != null){
             FileInfo fileInfo = filesService.saveFileToStorage(
                     labDto,
@@ -46,8 +46,8 @@ public class UpdateAvatarServlet extends HttpServlet {
                     part.getContentType(),
                     part.getSize());
             labDto.setAvatarId(fileInfo.getId());
-            session.setAttribute("user", labDto);
-            response.sendRedirect("/files/" + fileInfo.getId());
+            session.setAttribute("lab", labDto);
+            response.sendRedirect("/profile");
         }else
             response.sendError(403);
     }

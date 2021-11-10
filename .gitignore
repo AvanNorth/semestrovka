@@ -1,0 +1,22 @@
+.idea/
+*.iml
+*.iws
+log/
+target/
+
+**/target/
+/target/
+*/target/*
+.classpath
+.project
+.settings
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+*.idea
+.idea/misc.xml
+target/semestrovka-1.0-SNAPSHOT/META-INF/MANIFEST.MF
+target/semestrovka-1.0-SNAPSHOT/WEB-INF/classes/tat/itis/services/validation/ErrorEntity.class
