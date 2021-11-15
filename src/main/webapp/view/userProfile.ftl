@@ -95,7 +95,6 @@
                 </form>
             </div>
         </div>
-        <div class="tab-pane" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">dash...</div>
         <div class="tab-pane" id="order" role="tabpanel" aria-labelledby="order-tab">
             <div>
                 <!-- Лист заказов -->

@@ -13,7 +13,7 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
-    private Long phone;
+    private String phone;
     private String hashPassword;
     private String email;
     private Long avatarId;

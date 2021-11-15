@@ -51,7 +51,6 @@ public class SignInServiceImpl implements SignInService {
 
     @Override
     public LabDto signInLab(LabForm labForm) {
-        System.out.println(labForm.getEmail());
         Lab lab = labsRepository.findByEmail(labForm.getEmail())
                 .orElseThrow(() -> new ValidationException(ErrorEntity.NOT_FOUND));
         if (!passwordEncoder.matches(labForm.getPassword(), lab.getHashPassword())) {

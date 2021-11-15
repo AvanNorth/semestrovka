@@ -11,7 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Service {
     private Long id;
+    private Long lab_id;
     private String name;
     private String description;
     private Long avatarId;
+    private Long price;
 }

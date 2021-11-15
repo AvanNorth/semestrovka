@@ -29,7 +29,7 @@ public class UsersRepositoryImpl implements UsersRepository {
                     .id(row.getLong("id"))
                     .firstName(row.getString("first_name"))
                     .lastName(row.getString("last_name"))
-                    .phone(row.getLong("phone"))
+                    .phone(row.getString("phone"))
                     .hashPassword(row.getString("password_hash"))
                     .email(row.getString("email"))
                     .avatarId(row.getLong("avatar_id") == 0 ? null : row.getLong("avatar_id"))
@@ -79,7 +79,7 @@ public class UsersRepositoryImpl implements UsersRepository {
                 PreparedStatement statement = connection.prepareStatement(SQL_INSERT, new String[]{"id"});
                 statement.setString(1, item.getFirstName());
                 statement.setString(2, item.getLastName());
-                statement.setLong(3, item.getPhone());
+                statement.setString(3, item.getPhone());
                 statement.setString(4, item.getHashPassword());
                 statement.setString(5, item.getEmail());
                 if(item.getAvatarId() != null) {

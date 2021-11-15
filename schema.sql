@@ -3,7 +3,7 @@ create table if not exists users
     id serial not null primary key,
     first_name varchar(30),
     last_name varchar(30),
-    phone bigint not null unique,
+    phone varchar not null unique,
     password_hash varchar(100) not null,
     email varchar(100) not null unique,
     avatar_id integer references file_info
@@ -23,7 +23,7 @@ create table if not exists labs
     id serial not null primary key,
     name varchar(100) not null,
     email varchar(100) not null unique,
-    phone bigint not null unique,
+    phone varchar not null unique,
     password_hash varchar(100) not null,
     avatar_id bigint references file_info
 );
@@ -36,6 +36,7 @@ create table if not exists orders
     user_id bigint not null,
     lab_id bigint not null,
     cost bigint not null,
+    status bigint not null,
     date timestamp not null
 );
 
@@ -52,6 +53,12 @@ create table if not exists services
     lab_id bigint not null references labs,
     name varchar(100) not null,
     description varchar(255) not null,
-    avatar_id bigint references file_info
+    avatar_id bigint references file_info,
+    price bigint default 0 not null
+);
+
+create table if not exists statuses(
+    id serial not null primary key,
+    name varchar(50) not null
 );
 

@@ -30,7 +30,7 @@ public class LabsRepositoryImpl implements LabsRepository {
             Lab.builder()
                     .id(row.getLong("id"))
                     .name(row.getString("name"))
-                    .phone(row.getLong("phone"))
+                    .phone(row.getString("phone"))
                     .hashPassword(row.getString("password_hash"))
                     .email(row.getString("email"))
                     .avatarId(row.getLong("avatar_id") == 0 ? null : row.getLong("avatar_id"))
@@ -79,7 +79,7 @@ public class LabsRepositoryImpl implements LabsRepository {
             jdbcTemplate.update(connection -> {
                 PreparedStatement statement = connection.prepareStatement(SQL_INSERT, new String[]{"id"});
                 statement.setString(1, item.getName());
-                statement.setLong(2, item.getPhone());
+                statement.setString(2, item.getPhone());
                 statement.setString(3, item.getHashPassword());
                 statement.setString(4, item.getEmail());
                 if(item.getAvatarId() != null) {

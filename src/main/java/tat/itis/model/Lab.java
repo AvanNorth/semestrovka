@@ -12,7 +12,7 @@ import lombok.Setter;
 public class Lab {
     private Long id;
     private String name;
-    private Long phone;
+    private String phone;
     private String hashPassword;
     private String email;
     private Long avatarId;

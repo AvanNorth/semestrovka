@@ -2,7 +2,10 @@ package tat.itis.servlets;
 
 import tat.itis.dto.LabDto;
 import tat.itis.dto.UserDto;
+import tat.itis.model.Service;
+import tat.itis.services.ServicesService;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +15,12 @@ import java.io.IOException;
 
 @WebServlet("/profile")
 public class Profile extends HttpServlet {
+    private ServicesService service;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        this.service = (ServicesService) config.getServletContext().getAttribute("servicesService");
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,8 +29,9 @@ public class Profile extends HttpServlet {
         if (userDto != null){
             request.setAttribute("user", userDto);
             request.getRequestDispatcher("userProfile.ftl").forward(request, response);
-        }else if (labDto != null){
+        }else if (labDto != null){;
             request.setAttribute("lab", labDto);
+            request.setAttribute("services", service.getLabServices(labDto.getId()));
             request.getRequestDispatcher("labProfile.ftl").forward(request, response);
         }else
             response.sendRedirect("/sign-in");

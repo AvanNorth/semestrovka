@@ -1,16 +1,10 @@
 package tat.itis.listeners;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import tat.itis.dao.FilesRepository;
-import tat.itis.dao.LabsRepository;
-import tat.itis.dao.UsersRepository;
-import tat.itis.dao.impl.FilesRepositoryImpl;
-import tat.itis.dao.impl.LabsRepositoryImpl;
-import tat.itis.dao.impl.UsersRepositoryImpl;
-import tat.itis.services.FileService;
-import tat.itis.services.PasswordEncoder;
-import tat.itis.services.SignInService;
-import tat.itis.services.SignUpService;
+import tat.itis.dao.*;
+import tat.itis.dao.impl.*;
+import tat.itis.services.*;
 import tat.itis.services.impl.*;
 import tat.itis.services.validation.Validator;
 
@@ -57,21 +51,30 @@ public class CustomContextListener implements ServletContextListener {
         FilesRepository fileRepository = new FilesRepositoryImpl(dataSource);
         UsersRepository usersRepository = new UsersRepositoryImpl(dataSource);
         LabsRepository labsRepository = new LabsRepositoryImpl(dataSource);
+        OrderRepository orderRepository = new OrderRepositoryImpl(dataSource);
+        ServicesRepository servicesRepository = new ServicesRepositoryImpl(dataSource);
         FileService filesService = new FileServiceImpl(IMAGES_STORAGE_PATH, fileRepository, labsRepository, usersRepository);
         PasswordEncoder passwordEncoder = new PasswordEncoderImpl();
         SignInService signInService = new SignInServiceImpl(JWT_SECRET, usersRepository, labsRepository, passwordEncoder);
         Validator validator = new ValidatorImpl(usersRepository, labsRepository);
         SignUpService signUpService = new SignUpServiceImpl(usersRepository, labsRepository, passwordEncoder, validator);
+        ServicesService servicesService = new ServicesServiceImpl(servicesRepository);
+        LabsService labsService = new LabsServiceImpl(labsRepository);
+        OrdersService ordersService = new OrdersServiceImpl(orderRepository);
+
         //PostsRepository postsRepository = new PostsRepositoryImpl(dataSource);
         //PostsService postsService = new PostsServiceImpl(postsRepository);
-        //ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
 
        servletContext.setAttribute("filesService", filesService);
         servletContext.setAttribute("signInService", signInService);
         servletContext.setAttribute("signUpService", signUpService);
        // servletContext.setAttribute("postsService", postsService);
         servletContext.setAttribute("passwordEncoder", passwordEncoder);
-        //servletContext.setAttribute("objectMapper", objectMapper);
+        servletContext.setAttribute("servicesService", servicesService);
+        servletContext.setAttribute("labsService", labsService);
+        servletContext.setAttribute("ordersService",ordersService);
+        servletContext.setAttribute("objectMapper", objectMapper);
     }
 
     @Override

@@ -12,5 +12,5 @@ public class UserForm {
     private String firstName;
     private String lastName;
     private String password;
-    private Long phone;
+    private String phone;
 }

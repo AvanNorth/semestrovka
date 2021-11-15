@@ -36,7 +36,7 @@ public class SignUpLabServlet extends HttpServlet {
                     .name(request.getParameter("name"))
                     .email(request.getParameter("email"))
                     .password(request.getParameter("password"))
-                    .phone(Long.valueOf(request.getParameter("phone")))
+                    .phone(request.getParameter("phone"))
                     .build();
         } catch (NumberFormatException e) {
             Set<ErrorEntity> errors = new HashSet<>();

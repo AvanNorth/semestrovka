@@ -13,7 +13,7 @@ public class UserDto {
     private String email;
     private String firstName;
     private String lastName;
-    private Long phone;
+    private String phone;
     private Long avatarId;
     private String token;
 

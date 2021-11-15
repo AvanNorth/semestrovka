@@ -16,5 +16,6 @@ public class Order {
     private Long userId;
     private Long labId;
     private Long cost;
+    private Long status;
     private Timestamp data;
 }

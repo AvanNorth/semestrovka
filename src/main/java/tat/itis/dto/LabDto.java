@@ -13,7 +13,7 @@ public class LabDto {
     private Long id;
     private String email;
     private String name;
-    private Long phone;
+    private String phone;
     private Long avatarId;
     private String token;
 
