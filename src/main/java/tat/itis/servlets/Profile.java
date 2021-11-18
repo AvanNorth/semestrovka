@@ -3,6 +3,7 @@ package tat.itis.servlets;
 import tat.itis.dto.LabDto;
 import tat.itis.dto.UserDto;
 import tat.itis.model.Service;
+import tat.itis.services.OrdersService;
 import tat.itis.services.ServicesService;
 
 import javax.servlet.ServletConfig;
@@ -16,10 +17,12 @@ import java.io.IOException;
 @WebServlet("/profile")
 public class Profile extends HttpServlet {
     private ServicesService service;
+    private OrdersService ordersService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         this.service = (ServicesService) config.getServletContext().getAttribute("servicesService");
+        this.ordersService = (OrdersService) config.getServletContext().getAttribute("ordersService");
     }
 
     @Override
@@ -28,10 +31,12 @@ public class Profile extends HttpServlet {
         LabDto labDto = (LabDto) request.getSession(true).getAttribute("lab");
         if (userDto != null){
             request.setAttribute("user", userDto);
+            request.setAttribute("orders", ordersService.getOrdersByUserId(userDto.getId()));
             request.getRequestDispatcher("userProfile.ftl").forward(request, response);
         }else if (labDto != null){;
             request.setAttribute("lab", labDto);
             request.setAttribute("services", service.getLabServices(labDto.getId()));
+            request.setAttribute("orders", ordersService.getOrdersByLabId(labDto.getId()));
             request.getRequestDispatcher("labProfile.ftl").forward(request, response);
         }else
             response.sendRedirect("/sign-in");

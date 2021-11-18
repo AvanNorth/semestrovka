@@ -4,14 +4,15 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Album example · Bootstrap v5.1</title>
+    <title>Лаборатории</title>
 
 
     <!-- Bootstrap core CSS -->
     <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-
+    <link href="/resources/css/loader.css" rel="stylesheet">
+    <script src="/resources/jquery-3.6.0.min.js"></script>
+    <script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/resources/js/loader.js"></script>
 
     <meta name="theme-color" content="#7952b3">
 
@@ -42,11 +43,11 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Album example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+                <h1 class="fw-light">Лаборатории</h1>
+                <p class="lead text-muted">На этой странице вы можете выбрать лабораторию, в которой хотите заказать исследование или анализ.</p>
                 <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                    <a href="#" class="btn btn-primary my-2">Какая то синяя кнопка</a>
+                    <a href="#" class="btn btn-secondary my-2">А эта чет серая</a>
                 </p>
             </div>
         </div>
@@ -77,6 +78,8 @@
             </div>
         </div>
     </div>
+   <#include "loader.ftl">
+
 </main>
 
 

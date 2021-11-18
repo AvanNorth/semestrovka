@@ -9,10 +9,15 @@
     <script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/resources/bootstrap/js/sidebars.js"></script>
     <link href="/resources/bootstrap/css/list-groups.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="/resources/css/profile.css" rel="stylesheet">
+    <script src="/resources/jquery-3.6.0.min.js"></script>
+    <script src="/resources/js/loader.js"></script>
+    <link href="/resources/css/loader.css" rel="stylesheet">
+
+
 </head>
 <body>
+
 <main>
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -99,54 +104,26 @@
             <div>
                 <!-- Лист заказов -->
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
-                       aria-current="true">
-                        <img src="https://github.com/twbs.png" alt="twbs" class="rounded-circle flex-shrink-0"
-                             width="32" height="32">
-                        <div class="d-flex gap-2 w-100 justify-content-between">
-                            <div>
-                                <h6 class="mb-0">Заказ №0123456
-                                    <span class="badge rounded-pill bg-warning text-dark">Выполняется</span>
-                                </h6>
-                                <p class="mb-0 opacity-75">Название услуги, типо там "Анализ продуктов на
-                                    пестициды</p>
+                    <#list orders as order>
+                        <a href="/order?orderId=${order.id}" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                           aria-current="true">
+                            <img src="https://github.com/twbs.png" alt="twbs" class="rounded-circle flex-shrink-0"
+                                 width="32" height="32">
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div>
+                                    <h6 class="mb-0">Заказ №${order.id}
+                                        <span class="badge rounded-pill bg-warning text-dark">${order.status}</span>
+                                    </h6>
+                                </div>
+                                <small class="opacity-100 text-nowrap">${order.cost} руб</small>
                             </div>
-                            <small class="opacity-100 text-nowrap">300 руб</small>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
-                       aria-current="true">
-                        <img src="https://github.com/twbs.png" alt="twbs" class="rounded-circle flex-shrink-0"
-                             width="32" height="32">
-                        <div class="d-flex gap-2 w-100 justify-content-between">
-                            <div>
-                                <h6 class="mb-0">Заказ №0123457
-                                    <span class="badge rounded-pill bg-warning text-dark">Выполняется</span>
-                                </h6>
-                                <p class="mb-0 opacity-75">Тоже название услуги</p>
-                            </div>
-                            <small class="opacity-100 text-nowrap">1470 руб</small>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
-                       aria-current="true">
-                        <img src="https://github.com/twbs.png" alt="twbs" class="rounded-circle flex-shrink-0"
-                             width="32" height="32">
-                        <div class="d-flex gap-2 w-100 justify-content-between">
-                            <div>
-                                <h6 class="mb-0">Заказ №0123458
-                                    <span class="badge rounded-pill bg-success text-dark">Выполнен</span>
-                                </h6>
-                                <p class="mb-0 opacity-75">Опять название услуги, возможно несколько их кстати будет
-                                    сразу</p>
-                            </div>
-                            <small class="opacity-100 text-nowrap">2713 руб</small>
-                        </div>
-                    </a>
+                        </a>
+                    </#list>
                 </div>
             </div>
         </div>
     </div>
+    <#include "loader.ftl">
 </main>
 
 </body>

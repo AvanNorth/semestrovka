@@ -37,6 +37,8 @@ create table if not exists orders
     lab_id bigint not null,
     cost bigint not null,
     status bigint not null,
+    user_address varchar(100) not null,
+    service_id bigint not null,
     date timestamp not null
 );
 

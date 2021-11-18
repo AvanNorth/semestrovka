@@ -12,12 +12,14 @@
     <link href="/resources/css/modals.css" rel="stylesheet">
     <link href="/resources/css/profile.css" rel="stylesheet">
     <script src="/resources/jquery-3.6.0.min.js"></script>
-
+    <script src="/resources/js/loader.js"></script>
+    <link href="/resources/css/loader.css" rel="stylesheet">
 
 </head>
 <body>
+<#include "header.ftl">
 <main>
-    <div class="tab-content">
+    <div class="tab-content" style="margin-top: 1%">
         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="container emp-profile">
                 <form action="/update-avatar" method="post" enctype="multipart/form-data">
@@ -72,6 +74,7 @@
 
         </div>
     </div>
+    <#include "loader.ftl">
 </main>
 
 </body>

@@ -66,55 +66,58 @@
                 <form id = "userform" action="/sign-up-user">
                     <div class="form-floating">
                         <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">user email address</label>
+                        <label for="floatingInput">email</label>
                     </div>
                     <div class="form-floating">
                         <input name="phone" type="tel" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">user phone</label>
+                        <label for="floatingInput">Номер телефона</label>
                     </div>
                     <div class="form-floating">
                         <input name="firstName" type="text" class="form-control" id="floatingInput" placeholder="first name">
-                        <label for="floatingInput">first name</label>
+                        <label for="floatingInput">Имя</label>
                     </div>
                     <div class="form-floating">
                         <input name="lastName" type="text" class="form-control" id="floatingInput" placeholder="last name">
-                        <label for="floatingInput">last name</label>
+                        <label for="floatingInput">Фамилия</label>
                     </div>
                     <div class="form-floating">
                         <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="password">
-                        <label for="floatingPassword">password</label>
+                        <label for="floatingPassword">Пароль</label>
                     </div>
                     <a href="#" class="btn btn-sm animated-button victoria-one" onclick="document.getElementById('userform').submit()">Регистрация</a>
                     <noscript>
                         <input type="submit" value="Регистрация" />
                     </noscript>
-
-                    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+                    <#if error??>
+                        <p class="mt-5 mb-3 text-warning">${error}</p>
+                    </#if>
                 </form>
             </div>
             <div class="tab-pane fade" id="pills-lab" role="tabpanel" aria-labelledby="pills-lab-tab">
                 <form id = "labform" action="/sign-up-lab">
                     <div class="form-floating">
                         <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">lab email address</label>
+                        <label for="floatingInput">email</label>
                     </div>
                     <div class="form-floating">
                         <input name="phone" type="tel" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">lab phone</label>
+                        <label for="floatingInput">Номер телефона</label>
                     </div>
                     <div class="form-floating">
                         <input name="name" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">lab name</label>
+                        <label for="floatingInput">Название лаборатории</label>
                     </div>
                     <div class="form-floating">
                         <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">Password</label>
+                        <label for="floatingPassword">Пароль</label>
                     </div>
                     <a href="#" class="btn btn-sm animated-button victoria-one" onclick="document.getElementById('labform').submit()">Регистрация</a>
                     <noscript>
                         <input type="submit" value="Регистрация" />
                     </noscript>
-                    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+                    <#if error??>
+                        <p class="mt-5 mb-3 text-warning">${error.getMessage}</p>
+                    </#if>
                 </form>
             </div>
         </div>

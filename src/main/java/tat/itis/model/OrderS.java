@@ -18,6 +18,8 @@ public class OrderS {
     private Long labId;
     private Long cost;
     private String status;
+    private Long serviceId;
+    private String userAddress;
     private Timestamp date;
 
     public static OrderS from(Order order){
@@ -26,6 +28,8 @@ public class OrderS {
                 .userId(order.getUserId())
                 .labId(order.getLabId())
                 .cost(order.getCost())
+                .userAddress(order.getUserAddress())
+                .serviceId(order.getServiceId())
                 .date(order.getData()).build();
     }
 }

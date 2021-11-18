@@ -39,9 +39,7 @@ public class SignUpUserServlet extends HttpServlet {
                     .phone(request.getParameter("phone"))
                     .build();
         } catch (NumberFormatException e) {
-            Set<ErrorEntity> errors = new HashSet<>();
-            errors.add(ErrorEntity.INVALID_REQUEST);
-            request.setAttribute("errors", errors);
+            request.setAttribute("error", ErrorEntity.INVALID_REQUEST.getMessage());
             request.getRequestDispatcher("sign_up.ftl").forward(request, response);
             return;
         }
@@ -49,7 +47,7 @@ public class SignUpUserServlet extends HttpServlet {
         try {
             signUpService.signUp(form);
         } catch (ValidationException e) {
-            request.setAttribute("error", e.getEntity());
+            request.setAttribute("error", e.getEntity().getMessage());
             request.getRequestDispatcher("sign_up.ftl").forward(request, response);
             return;
         }

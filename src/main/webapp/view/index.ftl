@@ -6,16 +6,14 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Carousel Template · Bootstrap v5.1</title>
+    <title>Главная</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="/resources/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-
+    <script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/resources/js/loader.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -40,16 +38,7 @@
 </head>
 <body>
 
-<!-- Loader -->
-<div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-</div>
-<script>
-    $(window).on("load", function () {
-        $(".loader-wrapper").fadeOut("slow");
-        $(".loader-wrapper").overflow = "hidden";
-    });
-</script>
+
 <#include "header.ftl">
 
 <main>
@@ -213,8 +202,5 @@
 
 </body>
 
-<!-- Loader -->
-<div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-</div>
+<#include "loader.ftl">
 </html>

@@ -28,6 +28,7 @@ public class ServicesRepositoryImpl implements ServicesRepository {
             Service.builder()
                     .id(row.getLong("id"))
                     .name(row.getString("name"))
+                    .lab_id(row.getLong("lab_id"))
                     .description(row.getString("description"))
                     .avatarId(row.getLong("avatar_id") == 0 ? null : row.getLong("avatar_id"))
                     .price(row.getLong("price"))

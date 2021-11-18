@@ -17,6 +17,8 @@ public class OrderDto {
     private Long labId;
     private Long cost;
     private Long status;
+    private Long serviceId;
+    private String userAddress;
     private Timestamp date;
 
     public static OrderDto from(Order order){
@@ -26,6 +28,8 @@ public class OrderDto {
                 .labId(order.getLabId())
                 .cost(order.getCost())
                 .status(order.getStatus())
+                .serviceId(order.getServiceId())
+                .userAddress(order.getUserAddress())
                 .date(order.getData()).build();
     }
 

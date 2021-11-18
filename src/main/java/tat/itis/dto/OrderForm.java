@@ -14,5 +14,7 @@ public class OrderForm {
     private Long userId;
     private Long labId;
     private Long cost;
+    private String userAddress;
+    private Long serviceId;
     private Timestamp date;
 }

@@ -3,6 +3,7 @@ package tat.itis.services;
 import tat.itis.dto.OrderForm;
 import tat.itis.model.Order;
 import tat.itis.model.OrderS;
+import tat.itis.model.Status;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public interface OrdersService {
 
     OrderS getOrderById(Long id);
     OrderS createOrder(OrderForm order);
-    OrderS changeOrderStatus(Order order,Long statusId);
+    OrderS changeOrderStatus(OrderS orderS,Long statusId);
+
+    List<Status> getAllStatuses();
 
 }

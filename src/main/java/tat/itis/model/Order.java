@@ -17,5 +17,7 @@ public class Order {
     private Long labId;
     private Long cost;
     private Long status;
+    private Long serviceId;
+    private String userAddress;
     private Timestamp data;
 }

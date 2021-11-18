@@ -4,6 +4,7 @@ import tat.itis.dao.OrderRepository;
 import tat.itis.dto.OrderForm;
 import tat.itis.model.Order;
 import tat.itis.model.OrderS;
+import tat.itis.model.Status;
 import tat.itis.services.OrdersService;
 
 import java.util.LinkedList;
@@ -36,32 +37,45 @@ public class OrdersServiceImpl implements OrdersService {
     public OrderS getOrderById(Long id) {
         Optional<Order> order = orderRepository.findById(id);
 
-        //TODO доделать
-
-        return null;
+        if (order.isPresent()) {
+            Order order1 = order.get();
+            OrderS orderS = OrderS.from(order1);
+            orderS.setStatus(orderRepository.getOrderStatus(order1.getStatus()));
+            return orderS;
+        } else
+            return null;
     }
 
     @Override
     public OrderS createOrder(OrderForm orderForm) {
+        Long statusId = Long.parseLong("1");
         Order order = Order.builder()
                 .userId(orderForm.getUserId())
                 .labId(orderForm.getLabId())
                 .cost(orderForm.getCost())
                 .data(orderForm.getDate())
+                .userAddress(orderForm.getUserAddress())
+                .serviceId(orderForm.getServiceId())
                 .build();
 
+        OrderS orderS = OrderS.from(orderRepository.save(order));
 
-        return OrderS.from(orderRepository.save(order));
+        orderS.setStatus(orderRepository.getOrderStatus(statusId));
+        return orderS;
     }
 
     @Override
-    public OrderS changeOrderStatus(Order order, Long statusId) {
-        orderRepository.changeStatus(order.getId(),statusId);
+    public OrderS changeOrderStatus(OrderS orderS, Long statusId) {
+        orderRepository.changeStatus(orderS.getId(), statusId);
 
-        OrderS orderS = OrderS.from(order);
         orderS.setStatus(orderRepository.getOrderStatus(statusId));
 
         return orderS;
+    }
+
+    @Override
+    public List<Status> getAllStatuses() {
+        return orderRepository.getAllStatuses();
     }
 
     private List<OrderS> stringStatus(List<Order> orders) {
